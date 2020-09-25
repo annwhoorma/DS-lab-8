@@ -1,6 +1,7 @@
 from multiprocessing import Process, Pipe
 from os import getpid
 from datetime import datetime
+from time import sleep
 
 # to imitate an event for process with id=pid
 def grab_cider(pid, name, counter):
@@ -46,6 +47,8 @@ def process_a(to_b):
     counter = grab_cider(pid, name, counter)
     counter = grab_cider(pid, name, counter)
     counter = recv_msg(to_b, pid, counter)
+    sleep(0.3)
+    print("\nA's final vector: {}".format(counter))
 
 # B's process according to 'processes.jpg'
 def process_b(to_a, to_c):
@@ -59,7 +62,10 @@ def process_b(to_a, to_c):
     counter = grab_cider(pid, name, counter)
     counter = send_msg(to_a, pid, name, "a", counter, "hey, we should stop drinking")
     counter = send_msg(to_c, pid, name, "c", counter, "A got shitfaced, let's go pls")
+    sleep(0.2)
     counter = send_msg(to_c, pid, name, "c", counter, "duude you should stop, let's go")
+    sleep(0.1)
+    print("B's final vector: {}".format(counter))
 
 # C's process according to 'processes.jpg'
 def process_c(to_b):
@@ -70,6 +76,8 @@ def process_c(to_b):
     counter = recv_msg(to_b, pid, counter)
     counter = grab_cider(pid, "c", counter)
     counter = recv_msg(to_b, pid, counter)
+    sleep(0.6)
+    print("C's final vector: {}".format(counter))
 
 # main function
 def main():
@@ -92,6 +100,5 @@ def main():
     a.join()
     b.join()
     c.join()
-    
 
 main()

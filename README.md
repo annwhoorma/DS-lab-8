@@ -4,9 +4,7 @@
 
 Anna Boronina (@whoorma) 
 
-#### GitHub Repository
-
-
+[github repository with the source code](https://github.com/annwhoorma/DS-lab-8)
 
 ### Exercise 1.2
 
@@ -20,7 +18,7 @@ Anna Boronina (@whoorma)
 
 **A2:**
 
-![image-20200924170539298](/home/whoorma/.config/Typora/typora-user-images/image-20200924170539298.png)
+![image-20200924170539298](images/ntpq-output.png)
 
 `remote`: NTP server we are connected to
 
@@ -55,4 +53,4 @@ Anna Boronina (@whoorma)
 
 You can see the output of the program below and compare it to the picture.
 
-![image-20200925121756569](/home/whoorma/.config/Typora/typora-user-images/image-20200925121756569.png)
+![image-20200925121756569](images/processes-output.png)
